@@ -19,15 +19,15 @@ module.exports = function(controller) {
             convo.ask('What is your favorite color?', function(response, convo) {
 
                 convo.say('Cool, I like ' + response.text + ' too!');
-                convo.next();
+                convo.ask('What is your favorite car?', function(response, convo) {
+
+                    convo.say('Cool, I like ' + response.text + ' too!');
+                    convo.next();
+
+                });
 
             });
-            convo.ask('What is your favorite car?', function(response, convo) {
 
-                convo.say('Cool, I like ' + response.text + ' too!');
-                convo.next();
-
-            });
         });
 
     });
