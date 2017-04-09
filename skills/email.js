@@ -92,12 +92,13 @@ module.exports = function(controller) {
             var responses = convo.extractResponses();
             console.log(responses);
             // setup email data with unicode symbols
+            sendMessageTo = responses.emailaddress.split("|").pop();
             let mailOptions = {
                 from: process.env.smtpFrom, // sender address
-                to: process.env.smtpTo, // list of receivers
-                subject: 'Hello ✔', // Subject line
-                text: 'Hello world ?', // plain text body
-                html: '<b>Hello world ?</b>' // html body
+                to: sendMessageTo, // list of receivers
+                subject: responses.subject, // Subject line
+                text: responses.message, // plain text body
+                html: responses.message // html body
             };
             console.log("Mail Options", mailOptions);
             // send mail with defined transport object
