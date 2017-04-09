@@ -39,7 +39,8 @@ module.exports = function(controller) {
     controller.studio.validate(skill,'emailaddress', function(convo, next) {
 
         var value = convo.extractResponse('emailaddress');
-        convo.setVar('emailaddress', value);
+        const sendMessageTo = responses.emailaddress.split("|").pop().replace(">", "");
+        convo.setVar('emailaddress', sendMessageTo);
         convo.activate();
         //convo.gotoThread('')
         // test or validate value somehow
@@ -95,7 +96,7 @@ module.exports = function(controller) {
             console.log(responses);
             // setup email data with unicode symbols
 
-            sendMessageTo = responses.emailaddress.split("|").pop();
+
             let mailOptions = {
                 from: process.env.smtpFrom, // sender address
                 to: sendMessageTo, // list of receivers
