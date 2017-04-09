@@ -1,14 +1,15 @@
 const nodemailer = require('nodemailer');
 
 // create reusable transporter object using the default SMTP transport
-let transporter = nodemailer.createTransport({
+const smtpConfig = {
     service: process.env.smtpService,
     auth: {
         user: process.env.smtpUsername,
         pass: process.env.smtpPassword
     }
-});
-
+};
+const transporter = nodemailer.createTransport(smtpConfig);
+console.log("Smtp Config", smtpConfig);
 
 /*
 
@@ -84,7 +85,7 @@ module.exports = function(controller) {
     controller.studio.after(skill, function(convo, next) {
 
         console.log(`AFTER: ${skill}`);
-
+        console.log('Success?', convo.successful());
         // handle the outcome of the convo
         if (convo.successful()) {
 
@@ -98,7 +99,7 @@ module.exports = function(controller) {
                 text: 'Hello world ?', // plain text body
                 html: '<b>Hello world ?</b>' // html body
             };
-
+            console.log("Mail Options", mailOptions);
             // send mail with defined transport object
             transporter.sendMail(mailOptions, (error, info) => {
                 if (error) {
