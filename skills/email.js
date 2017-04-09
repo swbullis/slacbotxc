@@ -40,6 +40,7 @@ module.exports = function(controller) {
 
         var value = convo.extractResponse('emailaddress');
         convo.setVar('emailaddress', value);
+        convo.activate();
         //convo.gotoThread('')
         // test or validate value somehow
         // can call convo.gotoThread() to change direction of conversation
