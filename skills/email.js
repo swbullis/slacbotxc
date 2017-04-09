@@ -93,8 +93,8 @@ module.exports = function(controller) {
             console.log(responses);
             // setup email data with unicode symbols
             let mailOptions = {
-                from: env.process.smtpFrom, // sender address
-                to: env.process.smtpTo, // list of receivers
+                from: process.env.smtpFrom, // sender address
+                to: process.env.smtpTo, // list of receivers
                 subject: 'Hello ✔', // Subject line
                 text: 'Hello world ?', // plain text body
                 html: '<b>Hello world ?</b>' // html body
