@@ -3,7 +3,7 @@
 Botkit Studio Skill module to enhance the "Test" script
 
 */
-const skill = 'Email';
+const skill = 'sendemail';
 
 module.exports = function(controller) {
     // define a before hook
