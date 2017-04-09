@@ -39,7 +39,8 @@ module.exports = function(controller) {
     controller.studio.validate(skill,'emailaddress', function(convo, next) {
 
         var value = convo.extractResponse('emailaddress');
-
+        convo.setVar('emailaddress', value);
+        //convo.gotoThread('')
         // test or validate value somehow
         // can call convo.gotoThread() to change direction of conversation
 
@@ -105,7 +106,7 @@ module.exports = function(controller) {
             // send mail with defined transport object
             transporter.sendMail(mailOptions, (error, info) => {
                 if (error) {
-                    bot.reply('Message failed: ', error.Error);
+                    bot.reply('Message failed: ', error);
                     return console.log(error);
                 }
                 bot.reply('Message sent to ', sendMessageTo);
