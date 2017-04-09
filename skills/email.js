@@ -39,7 +39,7 @@ module.exports = function(controller) {
     controller.studio.validate(skill,'emailaddress', function(convo, next) {
 
         var value = convo.extractResponse('emailaddress');
-        const sendMessageTo = responses.emailaddress.split("|").pop().replace(">", "");
+        const sendMessageTo = value.split("|").pop().replace(">", "");
         convo.setVar('emailaddress', sendMessageTo);
         convo.activate();
         //convo.gotoThread('')
