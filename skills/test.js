@@ -30,7 +30,7 @@ module.exports = function(controller) {
         // test or validate value somehow
         // can call convo.gotoThread() to change direction of conversation
 
-        console.log(`VALIDATE: ${skill} VARIABLE: question_1`);
+        console.log(`VALIDATE: ${skill} VARIABLE: question_1: ${value}`);
 
         // always call next!
         next();
@@ -45,7 +45,7 @@ module.exports = function(controller) {
         // test or validate value somehow
         // can call convo.gotoThread() to change direction of conversation
 
-        console.log(`VALIDATE: ${skill} VARIABLE: question_2`);
+        console.log(`VALIDATE: ${skill} VARIABLE: question_2 ${value}`);
 
         // always call next!
         next();
@@ -60,7 +60,7 @@ module.exports = function(controller) {
         // test or validate value somehow
         // can call convo.gotoThread() to change direction of conversation
 
-        console.log(`VALIDATE: ${skill} VARIABLE: question_3`);
+        console.log(`VALIDATE: ${skill} VARIABLE: question_3: ${value}`);
 
         // always call next!
         next();
