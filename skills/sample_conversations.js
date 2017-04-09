@@ -22,6 +22,12 @@ module.exports = function(controller) {
                 convo.next();
 
             });
+            convo.ask('What is your favorite car?', function(response, convo) {
+
+                convo.say('Cool, I like ' + response.text + ' too!');
+                convo.next();
+
+            });
         });
 
     });
