@@ -92,6 +92,7 @@ module.exports = function(controller) {
             var responses = convo.extractResponses();
             console.log(responses);
             // setup email data with unicode symbols
+
             sendMessageTo = responses.emailaddress.split("|").pop();
             let mailOptions = {
                 from: process.env.smtpFrom, // sender address
@@ -104,8 +105,10 @@ module.exports = function(controller) {
             // send mail with defined transport object
             transporter.sendMail(mailOptions, (error, info) => {
                 if (error) {
+                    bot.reply('Message failed: ', error.Error);
                     return console.log(error);
                 }
+                bot.reply('Message sent to ', sendMessageTo);
                 console.log('Message %s sent: %s', info.messageId, info.response);
             });
             // do something with the responses
